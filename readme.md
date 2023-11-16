@@ -35,6 +35,6 @@ El código del ejercicio se divide en tres archivos:
 - Una vez sepamos que trae cada página muéstrala en navegador. 
 - Pon los estilos para que se vea similar al ejemplo
 - Haz el páginado. Piensa como añadir +1 a tu página al pulsar "Next Page" o -1 al pulsar "Previous Page" a la página en la que está para hacer el páginado.
-- Revisa la documentación si tienes dudas  
+- Revisa la docaumentción si tienes dudas  
 
 Let´s CODE
