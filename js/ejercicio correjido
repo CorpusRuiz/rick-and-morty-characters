@@ -1,0 +1,42 @@
+const characterList = document.getElementById('character-list')
+const prevPageButton = document.getElementById('prev-page')
+const nextPageButton = document.getElementById('next-page')
+
+let currentPage = 1
+const getCharactersRickAndMorty = (page) => {
+    fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
+    .then(Response => {
+        if(!Response.ok) {
+            throw new Error ('La solicitud no se pudo procesar')
+        } return Response.json()
+    })
+    .then (data => {
+        const characters =data.results
+        characterList.innerHTML = ''
+        characters.forEach(element => {
+            characterList.innerHTML += `
+            <li>
+                 <figure>
+                     <img src="${element.image}" alt"${element.name}" />
+                     <figcaption>
+                          <p><span>Name:</span>${element.name}</p>
+                         <p><span>Species:</span>${element.species}</p>
+                      </figcaption>
+                 </figure>
+            </li>
+            `
+            
+        });
+    })
+
+}
+nextPageButton.addEventListener('click', function() {
+    if (currentPage < 42) {
+        getCharactersRickAndMorty(currentPage++)
+    }
+})
+prevPageButton.addEventListener('click', function() {
+    if(currentPage > 1) {
+        getCharactersRickAndMorty(currentPage--)
+    }
+})
